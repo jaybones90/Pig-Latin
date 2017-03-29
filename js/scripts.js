@@ -1,36 +1,30 @@
 var vowels = ["a","e","i","o","u"];
 var consonants = ["b", "c", "d", "f", "g", "h", "j","k","l","m","n","p","q","r","s","t","v","w","x","z"];
-var newArray = [];
+//
 
 
-
-var vowelHunter = function(input){
-  var charArray = input.split(" ");
-  charArray.forEach(function(word){
+var pigLatin = function(input){
+  var vowelArray = input.split(" ");
+  vowelArray.forEach(function(word){
     vowels.forEach(function(vowel){
-      if(input.indexOf(vowel) === 0){
-        alert(word + "way");
+      if(word.indexOf(vowel) === 0){
+        console.log(word + "way");
       }
     });
   });
-}
-
-var conHunter = function(input){
-  var charArray = input.split(" ");
-  charArray.forEach(function(word){
-    consonants.forEach(function(consonant){
-      if(input.indexOf(consonant) === 0){
-        var newWord = word.substr(1) + word.substr(0,1) + "ay";
-
-        alert(newWord);
-      }
-    });
+  var conArray = input.split(" ");
+  conArray.forEach(function(word){
+    console.log(word);
+      for(i=0; i < word.length; i++){
+        if(consonants.indexOf(word[0]) >= 0){
+          word = word.substr(1) + word.substr(0,1);
+          console.log(word);
+        }
+    }
+    word = word + "ay";
+    console.log(word);
   });
-
 }
-
-
-
 
 
 $(function(){
