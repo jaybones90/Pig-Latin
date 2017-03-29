@@ -4,23 +4,24 @@ var consonants = ["b", "c", "d", "f", "g", "h", "j","k","l","m","n","p","q","r",
 
 
 var pigLatin = function(input){
-  var vowelArray = input.split(" ");
+  var vowelArray = input.split(" "); //create array of words from input
   vowelArray.forEach(function(word){
     vowels.forEach(function(vowel){
-      if(word.indexOf(vowel) === 0){
-        console.log(word + "way");
+      if(word.indexOf(vowel) === 0){ //true if first letter is vowel
+        console.log(word + "way"); //concat 'way' and log word
       }
     });
   });
-  var conArray = input.split(" ");
+  var conArray = input.split(" "); //create array of words from input
   conArray.forEach(function(word){
-    console.log(word);
       for(i=0; i < word.length; i++){
+          //true if first letter is a consonant
         if(consonants.indexOf(word[0]) >= 0){
+          //remove first char of string, and append it to the end
           word = word.substr(1) + word.substr(0,1);
-          console.log(word);
         }
     }
+    //add 'ay' after loop
     word = word + "ay";
     console.log(word);
   });
@@ -28,7 +29,7 @@ var pigLatin = function(input){
 
 
 $(function(){
-  $("button").click(function(e){
+  $("form").submit(function(e){
     e.preventDefault();
     var userInput = $("input").val();
     pigLatin(userInput);
